@@ -34,4 +34,9 @@ public:
     static uint16_t readTimeout(void);
 };
 
+void delay(uint32_t ms);
+
+#define I2CDEV_DEFAULT_READ_TIMEOUT 100
+#define I2CDEVLIB_WIRE_BUFFER_LENGTH 100
+
 #endif

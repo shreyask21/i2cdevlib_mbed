@@ -41,7 +41,7 @@ int8_t I2Cdev::readBit(uint8_t devAddr, uint8_t regAddr, uint8_t bitNum, uint8_t
  */
 int8_t I2Cdev::readBitW(uint8_t devAddr, uint8_t regAddr, uint8_t bitNum, uint16_t *data, uint16_t timeout)
 {
-    uint16_t b;
+    uint16_t b = 0;
     uint8_t count = readWord(devAddr, regAddr, &b, timeout);
     *data = b & (1 << bitNum);
     return count;
@@ -292,4 +292,8 @@ bool I2Cdev::writeWords(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint16
 uint16_t I2Cdev::readTimeout(void)
 {
     return 0;
+}
+
+void delay(uint32_t ms){
+    thread_sleep_for(ms);
 }
